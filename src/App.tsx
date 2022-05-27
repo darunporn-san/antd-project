@@ -1,12 +1,8 @@
-import "./styles/App.css";
-import Home from "./container/Home";
-// import Home from "@/container/Home";
+import { Provider } from "react-redux";
+import Routes from "./routes";
+
 function App() {
-	return (
-		<div>
-			<Home />
-		</div>
-	);
+	return <Routes />;
 }
 
 export default App;
