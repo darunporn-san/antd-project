@@ -1,4 +1,4 @@
-import Home from "../container/home";
+import Home from "../container/Home";
 import Setting from "../container/setting";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "../components/Layout/MainLayout";
