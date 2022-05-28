@@ -18,8 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
         "@/*":["src/*"]
@@ -27,7 +26,6 @@
   },
   "include": [
     "src",
-    "src/**/*"
   ],
   "exclude": ["node_modules"]
 }
