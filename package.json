@@ -47,6 +47,7 @@
 		]
 	},
 	"devDependencies": {
+		"craco-alias": "^3.0.1",
 		"less": "^4.1.2",
 		"less-loader": "^11.0.0"
 	}

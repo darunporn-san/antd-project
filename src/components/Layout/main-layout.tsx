@@ -7,8 +7,8 @@ export default class MainLayout extends React.PureComponent<any, any> {
 		return (
 			<div style={{ minHeight: "100vh", display: "flex" }}>
 				<Sidebar />
-				<div>
-					<div style={{ margin: "0 16px" }}>{this.props.children}</div>
+				<div style={{ margin: "16px", width: "100%", height: "100%" }}>
+					{this.props.children}
 				</div>
 			</div>
 		);

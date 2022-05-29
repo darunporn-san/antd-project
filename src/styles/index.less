@@ -1,6 +1,7 @@
 @import '~antd/es/style/themes/default.less';
 @import '~antd/dist/antd.less';
 @import './layout.less';
+@import './custom.less';
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 body {
     margin: 0;
@@ -15,4 +16,27 @@ code {
 @btn-primary-bg:  @primary-color;;
 @badge-dot-size: 1rem;
 @collapse-header-padding:0px 0px 10px 0;
+@table-header-bg:#093B5C;
+@table-header-color: #fff;
+@table-border-radius-base: 10px;
+@card-radius:20px;
+@dropdown-menu-bg: #093B5C;
 
+.ant-input-affix-wrapper{
+    border-radius: 30px;
+}
+
+.ant-table tr:nth-child(2n) td {
+    //   background-color: #fbfbfb !important;
+    background-color: #d6ecf0 !important;
+
+  }
+.pagination{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    .ant-pagination-item,.ant-pagination-item-link{
+        border-radius: 20px;
+    }
+
+}
