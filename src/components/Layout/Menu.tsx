@@ -12,13 +12,23 @@ import {
 } from "@ant-design/icons";
 const { Panel } = Collapse;
 const Menu: any = () => {
+	const headerCollapse = (title: any, icon: any) => {
+		return (
+			<div>
+				<span className="icon-sidebar">{icon}</span>
+				{title}
+			</div>
+		);
+	};
 	const renderList = (data: any) => {
 		return (
 			<Collapse ghost expandIconPosition={"right"}>
 				{data?.map((child: any, key: number) => {
 					if (child?.children) {
 						return (
-							<Panel header={child.title} key={child.key}>
+							<Panel
+								header={headerCollapse(child.title, child.icon)}
+								key={child.key}>
 								{renderList(child.children)}
 							</Panel>
 						);
@@ -26,7 +36,7 @@ const Menu: any = () => {
 						return (
 							<NavLink to={child.to}>
 								<p>
-									{child.icon}
+									<span className="icon-sidebar">{child.icon}</span>
 									{child.title}
 								</p>
 							</NavLink>
@@ -63,7 +73,7 @@ const menuList = [
 				key: "system_dashboard",
 				title: "ภาพรวมระบบ",
 				icon: <HomeOutlined />,
-				to: "/system-dashboard",
+				to: "/",
 			},
 			{
 				key: "course_dashboard",
@@ -81,7 +91,7 @@ const menuList = [
 				key: "create_course",
 				title: "สร้างหลักสูตร",
 				icon: <MailOutlined />,
-				to: "/creat-course",
+				to: "/create-course",
 			},
 			{
 				key: "open_course",
