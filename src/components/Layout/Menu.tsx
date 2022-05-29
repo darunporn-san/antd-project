@@ -1,5 +1,15 @@
 import { Collapse } from "antd";
-
+import { NavLink } from "react-router-dom";
+import {
+	HomeOutlined,
+	SettingFilled,
+	SmileOutlined,
+	SyncOutlined,
+	SecurityScanOutlined,
+	FileOutlined,
+	MailOutlined,
+	SettingOutlined,
+} from "@ant-design/icons";
 const { Panel } = Collapse;
 const Menu: any = () => {
 	const renderList = (data: any) => {
@@ -13,7 +23,14 @@ const Menu: any = () => {
 							</Panel>
 						);
 					} else {
-						return <p>{child.title}</p>;
+						return (
+							<NavLink to={child.to}>
+								<p>
+									{child.icon}
+									{child.title}
+								</p>
+							</NavLink>
+						);
 					}
 				})}
 			</Collapse>
@@ -42,23 +59,53 @@ const menuList = [
 		key: "dashboard",
 		title: "รายงาน",
 		children: [
-			{ key: "system_dashboard", title: "ภาพรวมระบบ", icon: "", to: "" },
-			{ key: "course_dashboard", title: "รายหลักสูตร", icon: "", to: "" },
+			{
+				key: "system_dashboard",
+				title: "ภาพรวมระบบ",
+				icon: <HomeOutlined />,
+				to: "/system-dashboard",
+			},
+			{
+				key: "course_dashboard",
+				title: "รายหลักสูตร",
+				icon: <SettingFilled />,
+				to: "/course-dashboard",
+			},
 		],
 	},
 	{
 		key: "course",
 		title: "หลักสูตร",
 		children: [
-			{ key: "create_course", title: "สร้างหลักสูตร", icon: "", to: "" },
-			{ key: "open_course", title: "เปิดรอบหลักสูตร", icon: "", to: "" },
+			{
+				key: "create_course",
+				title: "สร้างหลักสูตร",
+				icon: <MailOutlined />,
+				to: "/creat-course",
+			},
+			{
+				key: "open_course",
+				title: "เปิดรอบหลักสูตร",
+				icon: <SyncOutlined />,
+				to: "/open-course",
+			},
 			{
 				key: "setting_course",
 				title: "ตั้งค่าหลักสูตร",
-				icon: "",
+				icon: <FileOutlined />,
 				children: [
-					{ key: "type_course", title: "หมวดหมู่", icon: "", to: "" },
-					{ key: "certificate", title: "ระดับใบรับรอง", icon: "", to: "" },
+					{
+						key: "type_course",
+						title: "หมวดหมู่",
+						icon: "",
+						to: "/type-course",
+					},
+					{
+						key: "certificate",
+						title: "ระดับใบรับรอง",
+						icon: "",
+						to: "/certificate",
+					},
 				],
 			},
 		],
@@ -70,20 +117,20 @@ const menuList = [
 			{
 				key: "person_setting",
 				title: "จัดการบุคลากร",
-				icon: "",
+				icon: <SmileOutlined />,
 				children: [
-					{ key: "staff", title: "บุคลากร", icon: "", to: "" },
-					{ key: "position", title: "ตำแหน่ง", icon: "", to: "" },
+					{ key: "staff", title: "บุคลากร", icon: "", to: "/staff" },
+					{ key: "position", title: "ตำแหน่ง", icon: "", to: "/position" },
 				],
 			},
-			{ key: "chat", title: "แชท", icon: "", to: "" },
+			{ key: "chat", title: "แชท", icon: <FileOutlined />, to: "/chat" },
 			{
 				key: "web_setting",
 				title: "หน้าเว็บ",
-				icon: "",
+				icon: <SecurityScanOutlined />,
 				children: [
-					{ key: "library", title: "ห้องสมุด", icon: "", to: "" },
-					{ key: "banner", title: "แบนเนอร์", icon: "", to: "" },
+					{ key: "library", title: "ห้องสมุด", icon: "", to: "/library" },
+					{ key: "banner", title: "แบนเนอร์", icon: "", to: "/banner" },
 				],
 			},
 		],

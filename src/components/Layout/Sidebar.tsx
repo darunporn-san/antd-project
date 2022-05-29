@@ -1,7 +1,7 @@
 import { Image, Avatar, Badge } from "antd";
 import logo from "../../asset/images/logo.svg";
 import { UserOutlined } from "@ant-design/icons";
-import Menu from "./Menu";
+import Menu from "./menu";
 const Sidebar: any = () => {
 	return (
 		<div className="sidebar-layout">

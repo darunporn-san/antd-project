@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout, Menu, Breadcrumb } from "antd";
-import Sidebar from "./Sidebar";
-const { Header, Content, Footer, Sider } = Layout;
+import Sidebar from "./sidebar";
 
 export default class MainLayout extends React.PureComponent<any, any> {
 	public render() {
