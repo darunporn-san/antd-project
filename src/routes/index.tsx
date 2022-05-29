@@ -1,5 +1,5 @@
-import Home from "../container/home";
-import Setting from "../container/setting";
+import Home from "@container/Home";
+import Setting from "@container/setting";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default (): any => {
