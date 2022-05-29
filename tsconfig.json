@@ -22,12 +22,15 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-        "@/*":["src/*"]
+        "@component/*":["src/components/*"],
+        "@container/*": ["src/container/*"]
     }
   },
-  "include": [
-    "src",
-    "src/**/*"
+  "exclude": [
+    "node_modules",
+    "build"
   ],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ]
 }
