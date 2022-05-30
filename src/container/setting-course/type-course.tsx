@@ -1,9 +1,10 @@
-import { Tag, Switch, Card, Button } from "antd";
+import React, { useState } from "react";
+import { Modal, Switch, Card, Button } from "antd";
 import Header from "../../components/layout/header";
 import SearchInput from "../../components/app/search-input";
 import CustomTable from "../../components/app/custom-table";
 import type { ColumnsType } from "antd/lib/table";
-import { EllipsisOutlined } from "@ant-design/icons";
+import CustomModal from "../../components/app/custom-modal";
 
 interface DataType {
 	key: string;
@@ -67,19 +68,35 @@ const dataSource: DataType[] = [
 ];
 
 const TypeCourse: any = () => {
+	const [isModalVisible, setIsModalVisible] = useState(false);
+
+	const showModal = () => {
+		setIsModalVisible(true);
+	};
+
+	const submitTypeCourse = () => {
+		setIsModalVisible(false);
+	};
+
 	return (
 		<div>
 			<Header />
 			<div className="content">
 				<div className="title-card">
 					<h1 style={{ fontWeight: 600 }}>หมวดหมู่</h1>
-					<Button type="primary">+ สร้างหมวดหมู่</Button>
+					<Button type="primary" onClick={showModal}>
+						+ สร้างหมวดหมู่
+					</Button>
 				</div>
 				<SearchInput></SearchInput>
 				<Card style={{ paddingTop: "20px", marginTop: "20px" }}>
 					<CustomTable data={dataSource} column={columns} />
 				</Card>
 			</div>
+			<CustomModal
+				title="สร้างหมวดหมู่"
+				visible={isModalVisible}
+				submitData={submitTypeCourse}></CustomModal>
 		</div>
 	);
 };

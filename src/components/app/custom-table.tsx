@@ -33,26 +33,27 @@ const menu = (
 );
 
 const CustomTable: React.FC<any> = (props) => {
-	props.column?.push({
-		title: "",
-		key: "action",
-		render: (_: any, record: any) => (
-			<Dropdown overlay={menu} trigger={["click"]}>
-				<a onClick={(e) => e.preventDefault()}>
-					<Space>
-						<EllipsisOutlined />
-					</Space>
-				</a>
-			</Dropdown>
-		),
-	});
+	const [columns, setColumns] = useState([
+		{
+			title: "",
+			key: "action",
+			render: (_: any, record: any) => (
+				<Dropdown overlay={menu} trigger={["click"]}>
+					<a onClick={(e) => e.preventDefault()}>
+						<Space>
+							<EllipsisOutlined />
+						</Space>
+					</a>
+				</Dropdown>
+			),
+		},
+	]);
+	useEffect(() => {
+		setColumns(props.column?.concat(columns));
+	}, []);
 	return (
 		<>
-			<Table
-				dataSource={props.data}
-				columns={props.column}
-				pagination={false}
-			/>
+			<Table dataSource={props.data} columns={columns} pagination={false} />
 			<div className="pagination">
 				<Pagination defaultCurrent={2} total={100} />
 			</div>
