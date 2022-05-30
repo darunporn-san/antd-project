@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Modal, Switch, Card, Button } from "antd";
+import { Modal, Switch, Card, Button, Form } from "antd";
 import Header from "../../components/layout/header";
 import SearchInput from "../../components/app/search-input";
 import CustomTable from "../../components/app/custom-table";
 import type { ColumnsType } from "antd/lib/table";
 import CustomModal from "../../components/app/custom-modal";
+import FormTypeCourse from "./form-type-course";
 
 interface DataType {
 	key: string;
@@ -96,7 +97,9 @@ const TypeCourse: any = () => {
 			<CustomModal
 				title="สร้างหมวดหมู่"
 				visible={isModalVisible}
-				submitData={submitTypeCourse}></CustomModal>
+				submitData={submitTypeCourse}>
+				<FormTypeCourse />
+			</CustomModal>
 		</div>
 	);
 };
